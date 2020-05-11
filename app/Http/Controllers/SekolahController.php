@@ -8,12 +8,28 @@ use Illuminate\Http\Request;
 
 class SekolahController extends Controller
 {
-    public function getSekolah($id)
+
+    public function index()
+    {
+        return view('index');
+    }
+    public function getSekolah()
     {
         $client = new Client();
         $request = $client->get('http://localhost/pemabaserver/api/sekolah');
-        $response = $request->getBody()->getContents();
+        $response = $request->getBody();
 
-        $sekolah['datasekolah'] = json_decode($response, true);
+        $sekolah = json_decode($response, true);
+        return view('sekolah', ['sekolah' => $sekolah]);
+    }
+
+    public function detailSekolah($id)
+    {
+        $client = new Client();
+        $request = $client->get('http://localhost/pemabaserver/api/sekolah?id_sekolah=' . $id);
+        $response = $request->getBody();
+        $sekolah['sekolah'] = json_decode($response, true);
+
+        return view('detailsekolah', ['sekolah' => $sekolah]);
     }
 }

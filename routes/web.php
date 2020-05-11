@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', 'SekolahController@index');
+Route::get('/sekolah', 'SekolahController@getSekolah');
+Route::get('/sekolah/detailSekolah/{id}', 'SekolahController@detailSekolah');
+Route::get('/welcome', function () {
     return view('welcome');
 });
+
 
 Auth::routes();
 

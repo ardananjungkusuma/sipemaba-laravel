@@ -10,16 +10,6 @@
 <body>
     <div class="container">
         <div class="row mt-3">
-            <div class="col-md-6">
-                <div class="card-header text-center">
-                    <!-- Judul Halaman -->
-                    <h2> @yield('judul_halaman') </h2>
-                </div>
-                <div class="card-body">
-                    <!-- Konten Halaman -->
-                    @yield('konten')
-                </div>
-            </div>
             <div class="col-lg-12">
                 @yield('kontenluas')
             </div>
