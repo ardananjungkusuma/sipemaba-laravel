@@ -76,6 +76,31 @@ class HomeController extends Controller
             ]
         ]);
 
-        return redirect('/home');
+        return redirect('/home/sekolahuser')->with(['error' => 'Data Berhasil Dihapus']);
+    }
+
+    public function userEditSekolah($id)
+    {
+        $client = new Client();
+        $request = $client->get('http://localhost/pemabaserver/api/sekolah?id_sekolah=' . $id);
+        $response = $request->getBody();
+        $sekolah = json_decode($response, true);
+
+        return view('editsekolah', ['sekolah' => $sekolah]);
+    }
+
+    public function userUpdateSekolah(Request $request)
+    {
+        $client = new Client();
+        $client->request('PUT', 'http://localhost/pemabaserver/api/sekolah', [
+            'form_params' => [
+                'id_sekolah' => $request->id_sekolah,
+                'nama_sekolah' => $request->nama_sekolah,
+                'alamat_sekolah' => $request->alamat_sekolah,
+                'kota_kabupaten' => $request->kota_kabupaten,
+                'provinsi' => $request->provinsi
+            ]
+        ]);
+        return redirect('/home/userDetailSekolah/' . $request->id_sekolah)->with(['success' => 'Data Sekolah Berhasil Diedit']);
     }
 }

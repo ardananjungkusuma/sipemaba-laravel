@@ -2,6 +2,12 @@
 
 @section('kontenluas')
 <h3>Sekolah Terdaftar</h3><hr>
+@if ($message = Session::get('error'))
+      <div class="alert alert-danger alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{{ $message }}</strong>
+      </div>
+@endif
 <a href="/home/userTambahSekolah" class="btn btn-primary">Tambah Data Sekolah</a><br><br>
 <table class="table table-bordered" id="listSekolah">
     <thead class="thead-dark">

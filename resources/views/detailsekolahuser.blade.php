@@ -2,6 +2,12 @@
 
 @section('kontenluas')
 <h3>Detail Sekolah</h3><hr>
+@if ($message = Session::get('success'))
+      <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>{{ $message }}</strong>
+      </div>
+@endif
 <table class="table table-bordered">
     <thead class="thead-dark">
         <th>Nama Sekolah</th>
