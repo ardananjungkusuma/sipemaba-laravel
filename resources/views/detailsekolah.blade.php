@@ -1,13 +1,9 @@
-@extends('master')
+@extends('indexmaster')
 @extends('layouts.app')
 @section('title','Sekolah')
-
-@section('judul_halaman','Detail Data Sekolah')
-
-@section('konten')
-<a href="/sekolah" class="btn btn-primary">Kembali ke Daftar Sekolah</a>
-<br><br>
-<table class="table">
+@section('kontenluas')
+<h3>Detail Sekolah</h3>
+<table class="table table-bordered">
     <thead class="thead-dark">
         <th>Nama Sekolah</th>
         <th>Alamat</th>

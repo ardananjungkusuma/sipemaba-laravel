@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'SekolahController@index');
 Route::get('/sekolah', 'SekolahController@getSekolah');
+Route::get('/sipemaba/informasi', 'SipemabaController@informasi');
 Route::get('/sekolah/detailSekolah/{id}', 'SekolahController@detailSekolah');
+Route::get('/pendaftaran/cariPendaftaranView', 'PendaftaranController@cariPendaftaranView');
+Route::post('/pendaftaran/cariPendaftar', 'PendaftaranController@cariPendaftar');
 Route::get('/welcome', function () {
     return view('welcome');
 });

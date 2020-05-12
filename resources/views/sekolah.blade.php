@@ -1,23 +1,24 @@
-@extends('master')
+@extends('indexmaster')
 @extends('layouts.app')
 @section('title','Sekolah')
 
-@section('judul_halaman','Data Sekolah')
-
-@section('konten')
+@section('kontenluas')
 {{-- <a href="/sekolah/tambah" class="btn btn-primary">Tambah Data Sekolah</a> --}}
-<br><br>
-<table class="table">
+<h3>Sekolah Terdaftar</h3>
+<table class="table table-bordered" id="listSekolah">
     <thead class="thead-dark">
-        <th>Nama Sekolah</th>
-        <th>Kota Kabupaten</th>
-        <th>Aksi</th>
+        <tr>
+            <th>No</th>
+            <th>Nama Sekolah</th>
+            <th>Aksi</th>
+        </tr>
     </thead>
     <tbody>
+        <?php $no=1 ?>
         @foreach($sekolah as $sklh)
         <tr>
+            <td>{{ $no++ }}</td>
             <td>{{ $sklh['nama_sekolah'] }}</td>
-            <td>{{ $sklh['kota_kabupaten'] }}</td>
             <td>
                 <a href="/sekolah/detailSekolah/{{ $sklh['id_sekolah'] }}" class="badge badge-info">Detail</a>
             </td>
