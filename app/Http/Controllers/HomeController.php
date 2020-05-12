@@ -28,6 +28,16 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function userGetSiswa()
+    {
+        $client = new Client();
+        $request = $client->get('http://localhost/pemabaserver/api/siswa');
+        $response = $request->getBody();
+
+        $siswa = json_decode($response, true);
+        return view('user.siswa', ['siswa' => $siswa]);
+    }
+
     public function userGetSekolah()
     {
         $client = new Client();
@@ -35,12 +45,22 @@ class HomeController extends Controller
         $response = $request->getBody();
 
         $sekolah = json_decode($response, true);
-        return view('sekolahuser', ['sekolah' => $sekolah]);
+        return view('user.sekolahuser', ['sekolah' => $sekolah]);
     }
 
     public function tambahSekolah()
     {
-        return view('tambahsekolah');
+        return view('user.tambahsekolah');
+    }
+
+    public function tambahSiswa()
+    {
+        $client = new Client();
+        $request = $client->get('http://localhost/pemabaserver/api/sekolah');
+        $response = $request->getBody();
+
+        $sekolah = json_decode($response, true);
+        return view('user.tambahsiswa', ['sekolah' => $sekolah]);
     }
 
     public function simpanSekolah(Request $request)
@@ -54,7 +74,22 @@ class HomeController extends Controller
                 'provinsi' => $request->provinsi
             ]
         ]);
-        return view('simpanSekolah', ['data' => $request]);
+        return view('user.simpanSekolah', ['data' => $request]);
+    }
+
+    public function simpanSiswa(Request $request)
+    {
+        $client = new \GuzzleHttp\Client();
+        $client->request('POST', 'http://localhost/pemabaserver/api/siswa', [
+            'form_params' => [
+                'id_sekolah' => $request->id_sekolah,
+                'nisn' => $request->nisn,
+                'nama_siswa' => $request->nama_siswa,
+                'alamat_siswa' => $request->alamat_siswa,
+                'rata_rata_un' => $request->rata_rata_un
+            ]
+        ]);
+        return redirect('/home/siswa')->with(['success' => 'Data Siswa Berhasil Ditambahkan']);
     }
 
     public function detailSekolah($id)
@@ -64,7 +99,17 @@ class HomeController extends Controller
         $response = $request->getBody();
         $sekolah['sekolah'] = json_decode($response, true);
 
-        return view('detailsekolahuser', ['sekolah' => $sekolah]);
+        return view('user.detailsekolahuser', ['sekolah' => $sekolah]);
+    }
+
+    public function detailSiswa($id)
+    {
+        $client = new Client();
+        $request = $client->get('http://localhost/pemabaserver/api/siswa?id_siswa=' . $id);
+        $response = $request->getBody();
+        $siswa['siswa'] = json_decode($response, true);
+
+        return view('user.detailsiswauser', ['siswa' => $siswa]);
     }
 
     public function userDeleteSekolah($id)
@@ -79,6 +124,18 @@ class HomeController extends Controller
         return redirect('/home/sekolahuser')->with(['error' => 'Data Berhasil Dihapus']);
     }
 
+    public function userDeleteSiswa($id)
+    {
+        $client = new \GuzzleHttp\Client();
+        $client->delete('http://localhost/pemabaserver/api/siswa', [
+            'form_params' => [
+                'id_siswa' => $id
+            ]
+        ]);
+
+        return redirect('/home/siswa')->with(['error' => 'Data Siswa Berhasil Dihapus']);
+    }
+
     public function userEditSekolah($id)
     {
         $client = new Client();
@@ -86,7 +143,20 @@ class HomeController extends Controller
         $response = $request->getBody();
         $sekolah = json_decode($response, true);
 
-        return view('editsekolah', ['sekolah' => $sekolah]);
+        return view('user.editsekolah', ['sekolah' => $sekolah]);
+    }
+
+    public function userEditSiswa($id)
+    {
+        $client = new Client();
+        $request1 = $client->get('http://localhost/pemabaserver/api/sekolah');
+        $response1 = $request1->getBody();
+        $request2 = $client->get('http://localhost/pemabaserver/api/siswa?id_siswa=' . $id);
+        $response2 = $request2->getBody();
+        $siswa = json_decode($response2, true);
+
+        $sekolah = json_decode($response1, true);
+        return view('user.editsiswa', ['sekolah' => $sekolah, 'siswa' => $siswa]);
     }
 
     public function userUpdateSekolah(Request $request)
@@ -102,5 +172,21 @@ class HomeController extends Controller
             ]
         ]);
         return redirect('/home/userDetailSekolah/' . $request->id_sekolah)->with(['success' => 'Data Sekolah Berhasil Diedit']);
+    }
+
+    public function userUpdateSiswa(Request $request)
+    {
+        $client = new Client();
+        $client->request('PUT', 'http://localhost/pemabaserver/api/siswa', [
+            'form_params' => [
+                'id_siswa' => $request->id_siswa,
+                'id_sekolah' => $request->id_sekolah,
+                'nisn' => $request->nisn,
+                'nama_siswa' => $request->nama_siswa,
+                'alamat_siswa' => $request->alamat_siswa,
+                'rata_rata_un' => $request->rata_rata_un
+            ]
+        ]);
+        return redirect('/home/userDetailSiswa/' . $request->id_siswa)->with(['success' => 'Data Siswa Berhasil Diedit']);
     }
 }

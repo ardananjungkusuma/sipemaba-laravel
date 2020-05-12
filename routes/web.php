@@ -34,6 +34,13 @@ Route::post('/home/userSimpanSekolah', 'HomeController@simpanSekolah');
 Route::get('/home/userDeleteSekolah/{id}', 'HomeController@userDeleteSekolah');
 Route::get('/home/userEditSekolah/{id}', 'HomeController@userEditSekolah');
 Route::post('/home/userUpdateSekolah', 'HomeController@userUpdateSekolah');
+Route::get('/home/siswa', 'HomeController@userGetSiswa');
+Route::get('/home/userDetailSiswa/{id}', 'HomeController@detailSiswa');
+Route::get('/home/userTambahSiswa', 'HomeController@tambahSiswa');
+Route::post('/home/userSimpanSiswa', 'HomeController@simpanSiswa');
+Route::get('/home/userEditSiswa/{id}', 'HomeController@userEditSiswa');
+Route::post('/home/userUpdateSiswa', 'HomeController@userUpdateSiswa');
+Route::get('/home/userDeleteSiswa/{id}', 'HomeController@userDeleteSiswa');
 
 Auth::routes();
 

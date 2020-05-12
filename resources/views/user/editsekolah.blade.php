@@ -1,7 +1,7 @@
 @extends('layouts.appuser')
 
 @section('kontenluas')
-<h3>Tambah Sekolah Baru</h3><hr>
+<h3>Edit Sekolah</h3><hr>
 <form action="/home/userUpdateSekolah" method="POST">
     {{ csrf_field() }}
     <div class="form-group">
