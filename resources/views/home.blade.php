@@ -1,11 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.appuser')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+@section('kontenluas')
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header" style="background-color: #3490dc;color:white">Dashboard</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,10 +11,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    {{ Auth::user()->name }} are logged in!
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 @endsection

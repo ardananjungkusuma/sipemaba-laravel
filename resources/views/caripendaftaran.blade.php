@@ -3,7 +3,7 @@
 @section('title','Sekolah')
 
 @section('kontenluas')
-<h3>Cari Data Pendaftaran Menggunakan NISN</h3><br>
+<h3>Cari Data Pendaftaran Menggunakan NISN</h3><hr>
 <form action="/pendaftaran/cariPendaftar" method="POST" class="form-inline my-2 my-lg-0">
     {{ csrf_field() }}
     <input class="form-control mr-sm-2" type="text" name="nisn" placeholder="Ketik NISN disini">

@@ -58,18 +58,6 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="">
-                                    Daftarkan Siswa
-                                </a>
-
-                                <a class="dropdown-item" href="">
-                                    Manajemen Sekolah
-                                </a>
-
-                                <a class="dropdown-item" href="">
-                                    Manajemen Siswa
-                                </a>
-
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -84,10 +72,25 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+    </div>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header bg-primary" style="text-align: center;color:white;font-weight: bolder">
+                        Menu
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <a href="/sekolah" style="text-decoration: none;color: black" id="itemmenu" class="list-group-item list-group-item-action">Tambah Pendaftaran Siswa</a>
+                        <a href="/home/sekolahuser" style="text-decoration: none;color: black" id="itemmenu" class="list-group-item list-group-item-action">Manajemen Sekolah</a>
+                        <a href="/sipemaba/informasi" style="text-decoration: none;color: black" id="itemmenu" class="list-group-item list-group-item-action">Manajemen Siswa</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                @yield('kontenluas')
+            </div>
+        </div>
     </div>
 </body>
 

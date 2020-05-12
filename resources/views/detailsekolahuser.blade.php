@@ -1,6 +1,5 @@
-@extends('indexmaster')
-@extends('layouts.app')
-@section('title','Sekolah')
+@extends('layouts.appuser')
+
 @section('kontenluas')
 <h3>Detail Sekolah</h3><hr>
 <table class="table table-bordered">

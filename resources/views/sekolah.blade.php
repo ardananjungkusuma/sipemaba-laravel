@@ -4,7 +4,7 @@
 
 @section('kontenluas')
 {{-- <a href="/sekolah/tambah" class="btn btn-primary">Tambah Data Sekolah</a> --}}
-<h3>Sekolah Terdaftar</h3>
+<h3>Sekolah Terdaftar</h3><hr>
 <table class="table table-bordered" id="listSekolah">
     <thead class="thead-dark">
         <tr>

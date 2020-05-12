@@ -13,6 +13,7 @@ class SekolahController extends Controller
     {
         return view('index');
     }
+
     public function getSekolah()
     {
         $client = new Client();

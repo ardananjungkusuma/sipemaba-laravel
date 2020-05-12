@@ -27,6 +27,11 @@ Route::get('/welcome', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/sekolahuser', 'HomeController@userGetSekolah');
+Route::get('/home/userDetailSekolah/{id}', 'HomeController@detailSekolah');
+Route::get('/home/userTambahSekolah', 'HomeController@tambahSekolah');
+Route::post('/home/userSimpanSekolah', 'HomeController@simpanSekolah');
+Route::get('/home/userDeleteSekolah/{id}', 'HomeController@userDeleteSekolah');
 
 Auth::routes();
 
