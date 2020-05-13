@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2020 at 04:46 PM
+-- Generation Time: May 13, 2020 at 03:30 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -93,7 +93,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Ardan Anjung Kusuma', 'ardananjungkusuma@gmail.com', NULL, '$2y$10$7/vnus9Qxfvf0p/1g0Arzuw.PEgRoHSTwGN8Sa9.MWUtqce0.FaYi', NULL, '2020-05-11 00:53:00', '2020-05-11 00:53:00'),
-(2, 'Sugeng Prastiyo', 'sugengprastiyo@gmail.com', NULL, '$2y$10$CmNW6sFdMQQn6VoEyfKTfeOCw97ZrnwCJTy0unC2csdrvREGF7ahm', NULL, '2020-05-11 05:58:22', '2020-05-11 05:58:22');
+(2, 'Sugeng Prastiyo', 'sugengprastiyo@gmail.com', NULL, '$2y$10$CmNW6sFdMQQn6VoEyfKTfeOCw97ZrnwCJTy0unC2csdrvREGF7ahm', NULL, '2020-05-11 05:58:22', '2020-05-11 05:58:22'),
+(3, 'Livia Yurike', 'livia@gmail.com', NULL, '$2y$10$NULL3d9ZLarW2AALTsINVOVbqL0Mm8uQ5BFhOS2OCjK9rwQ4AX3lS', NULL, '2020-05-13 01:48:57', '2020-05-13 01:48:57');
 
 --
 -- Indexes for dumped tables
@@ -144,7 +145,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
