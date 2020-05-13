@@ -41,6 +41,8 @@ Route::post('/home/userSimpanSiswa', 'HomeController@simpanSiswa');
 Route::get('/home/userEditSiswa/{id}', 'HomeController@userEditSiswa');
 Route::post('/home/userUpdateSiswa', 'HomeController@userUpdateSiswa');
 Route::get('/home/userDeleteSiswa/{id}', 'HomeController@userDeleteSiswa');
+Route::get('/home/userTambahPendaftaran', 'HomeController@tambahPendaftaran');
+Route::post('/home/userSimpanPendaftaran', 'HomeController@simpanPendaftaran');
 
 Auth::routes();
 

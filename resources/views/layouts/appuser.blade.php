@@ -81,7 +81,7 @@
                         Menu
                     </div>
                     <ul class="list-group list-group-flush">
-                        <a href="/sekolah" style="text-decoration: none;color: black" id="itemmenu" class="list-group-item list-group-item-action">Tambah Pendaftaran Siswa</a>
+                        <a href="/home/userTambahPendaftaran" style="text-decoration: none;color: black" id="itemmenu" class="list-group-item list-group-item-action">Tambah Pendaftaran Siswa</a>
                         <a href="/home/sekolahuser" style="text-decoration: none;color: black" id="itemmenu" class="list-group-item list-group-item-action">Manajemen Sekolah</a>
                         <a href="/home/siswa" style="text-decoration: none;color: black" id="itemmenu" class="list-group-item list-group-item-action">Manajemen Siswa</a>
                     </ul>

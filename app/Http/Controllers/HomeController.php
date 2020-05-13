@@ -53,6 +53,16 @@ class HomeController extends Controller
         return view('user.tambahsekolah');
     }
 
+    public function tambahPendaftaran()
+    {
+        $client = new Client();
+        $request = $client->get('http://localhost/pemabaserver/api/siswa');
+        $response = $request->getBody();
+
+        $siswa = json_decode($response, true);
+        return view('user.tambahpendaftaran', ['siswa' => $siswa]);
+    }
+
     public function tambahSiswa()
     {
         $client = new Client();
@@ -90,6 +100,20 @@ class HomeController extends Controller
             ]
         ]);
         return redirect('/home/siswa')->with(['success' => 'Data Siswa Berhasil Ditambahkan']);
+    }
+
+    public function simpanPendaftaran(Request $request)
+    {
+        $client = new \GuzzleHttp\Client();
+        $client->request('POST', 'http://localhost/pemabaserver/api/pendaftaran', [
+            'form_params' => [
+                'id_siswa' => $request->id_siswa,
+                'perguruan_tinggi' => $request->perguruan_tinggi,
+                'jurusansatu' => $request->jurusansatu,
+                'jurusandua' => $request->jurusandua
+            ]
+        ]);
+        return view('user.simpanPendaftaran', ['data' => $request])->with(['success' => 'Data Pendaftaran Berhasil Ditambahkan']);
     }
 
     public function detailSekolah($id)
